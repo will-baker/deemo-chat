@@ -7,14 +7,14 @@ function ChatWindow() {
 
   // Function to handle new messages
   const handleNewMessage = (msg) => {
-    setMessages([...messages, { text: msg, from: 'user' }]);
+    setMessages([...messages, { text: msg, sender: 'user' }]);
     // Call API and add response to messages
   };
 
   return (
     <div className="flex-1 p-4">
       {messages.map((message, index) => (
-        <ChatBubble key={index} text={message.text} from={message.from} />
+        <ChatBubble key={index} message={message.text} sender={message.sender} />
       ))}
       <ChatInput onSendMessage={handleNewMessage} />
     </div>

@@ -3,9 +3,12 @@ import 'daisyui/dist/full.css';
 
 const ChatBubble = ({ message, sender }) => {
     return (
-        <div className={`chat-bubble chat-bubble-primary ${sender === 'user' ? 'user' : 'bot'}`}>
-            {message}
+        <div className={`chat ${sender === 'user' ? 'chat-end' : 'chat-start'}`}>
+            <div className={`chat-bubble  ${sender === 'user' ? 'chat-bubble-primary' : ''}`}>
+                Cat {message}
+            </div>
         </div>
+        
     );
 };
 

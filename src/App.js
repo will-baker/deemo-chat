@@ -6,7 +6,7 @@ import './index.css'; // Import TailwindCSS
 
 function App() {
   return (
-    <div className="App bg-gray-100 min-h-screen">
+    <div className="">
       <Header />
       <div className="flex">
         <ChatSidebar />

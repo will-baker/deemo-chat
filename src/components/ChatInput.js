@@ -15,10 +15,10 @@ function ChatInput({ onSendMessage }) {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="flex-1 rounded-l-full p-2 border-2 border-r-0 border-blue-500"
+        className="flex-1 rounded-l-full p-2 border-2 border-r-0 border-primary"
         placeholder="Type a message..."
       />
-      <button type="submit" className="bg-blue-500 text-white p-2 rounded-r-full">
+      <button type="submit" className="bg-primary text-white p-2 rounded-r-full border-2 border-r-0 border-primary">
         Send
       </button>
     </form>

@@ -2,13 +2,12 @@ import React from 'react';
 
 function ChatSidebar() {
   return (
-    <div className="w-60 h-full bg-gray-100 p-4">
-      <ul>
-        <li>Chat 1</li>
-        <li>Chat 2</li>
-        {/* Add more chats dynamically */}
-      </ul>
-    </div>
+<ul className="menu bg-base-200 rounded-box w-56 lg:min-w-max">
+  <li className="menu-title">Chat History</li>
+  <li><a className="active">Item 1</a></li>
+  <li><a>Item 2</a></li>
+  <li><a>Item 3</a></li>
+</ul>
   );
 }
 
