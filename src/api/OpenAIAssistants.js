@@ -1,6 +1,9 @@
-import OpenAI from 'openai';
+import OpenAI from "openai";
 
-const openai = new OpenAI({apiKey: process.env.REACT_APP_OPENAI_SECRET_KEY, dangerouslyAllowBrowser: true});
+const openai = new OpenAI({
+  apiKey: process.env.REACT_APP_OPENAI_SECRET_KEY,
+  dangerouslyAllowBrowser: true,
+});
 //const ASSISTANT_ID="asst_N3VvNPJJgK55KrOiJNnYuTsO";
 
 export const createThread = async () => {
@@ -10,7 +13,7 @@ export const createThread = async () => {
 
 export const addMessageToThread = async (threadId, message) => {
   await openai.beta.threads.messages.create(threadId, {
-    role: 'user',
+    role: "user",
     content: message,
   });
 };
@@ -27,10 +30,16 @@ export const getAssistantResponse = async (threadId, runId) => {
   let run;
   do {
     run = await openai.beta.threads.runs.retrieve(threadId, runId);
-    if (run.status === 'completed') {
+    if (run.status === "completed") {
       const messages = await openai.beta.threads.messages.list(threadId);
       return messages.data[0].content[0].text.value;
     }
-    await new Promise(resolve => setTimeout(resolve, 1000));
-  } while (run.status !== 'completed');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  } while (run.status !== "completed");
+};
+
+// Retrieve messages from an existing thread
+export const getMessages = async (threadId) => {
+  const messages = await openai.beta.threads.messages.list(threadId);
+  return messages.data;
 };
